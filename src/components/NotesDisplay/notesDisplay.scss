@@ -1,0 +1,279 @@
+.empty {
+	width: 100%;
+	height: 90%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	h2 {
+		margin: 0px auto 25px;
+		font-family: sans-serif;
+		font-size: 22px;
+	}
+
+	img {
+		height: 64px;
+		width: 64px;
+		margin-bottom: 25px;
+	}
+}
+
+.display {
+	padding: 15px;
+	border: 1px solid SteelBlue;
+	border-radius: 0px 7px 7px 0px;
+	width: 100%;
+	text-align: center;
+	border-left: none;
+
+	&__adder {
+		background: RoyalBlue;
+		color: white;
+		border: 1px solid #3498db;
+		border-radius: 7px;
+		height: 30px;
+		width: 100px;
+		margin: 0 auto;
+		margin-top: 15px;
+		transition: all 0.1s linear;
+
+		&:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 5px 0 DodgerBlue inset, 0 0 10px 4px DodgerBlue;
+			border: 1px solid DarkTurquoise;
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+
+	&__title,
+	&__time {
+		&_finished {
+			color: rgb(44, 44, 44);
+			text-decoration: line-through;
+			text-decoration-color: black;
+			text-decoration-thickness: 2px;
+		}
+	}
+
+	&__necessary,
+	&__done,
+	&__redact,
+	&__remove {
+		&:hover {
+			&:before {
+				position: absolute;
+				width: 100px;
+				border: 1px solid lightgrey;
+				background: LightSteelBlue;
+				color: black;
+				border-radius: 7px;
+				font-size: 12px;
+				line-height: 16px;
+				padding: 5px;
+				opacity: 0;
+				animation: visibility 1s 0.5s linear forwards;
+			}
+		}
+	}
+
+	&__title {
+		margin: 0 0 2px;
+		font-size: 26px;
+		text-align: center;
+		transition: all 1s linear;
+		height: 31px;
+		border-radius: 7px;
+
+		&_active {
+			text-decoration: underline;
+			letter-spacing: 1px;
+			font-size: 28px;
+			color: coral;
+
+			&:after {
+				content: '!';
+			}
+		}
+	}
+
+	&__time {
+		font-size: 16px;
+		text-align: center;
+		margin: 0 0 5px;
+
+		&_active {
+			font-weight: bold;
+		}
+	}
+
+	&__note {
+		display: grid;
+		grid-template: auto / repeat(20, 1fr);
+		font-size: 16px;
+		align-items: center;
+		border: 1px solid rgb(187, 187, 187);
+		border-radius: 7px;
+		margin-bottom: 15px;
+		transition: all 1s linear;
+
+		&_active {
+			border: 1px solid coral;
+		}
+	}
+
+	&__text {
+		grid-column: 1 / 17;
+		text-align: left;
+		padding: 5px 10px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		transition: all 1s linear;
+		border-right: 1px solid rgb(187, 187, 187);
+		border-radius: 7px 0px 0px 7px;
+
+		&_active {
+			border-right: 1px solid coral;
+		}
+
+		&_finished {
+			background: Gray;
+			text-decoration: line-through;
+			text-decoration-color: black;
+			text-decoration-thickness: 2px;
+			color: white;
+		}
+	}
+
+	&__actions {
+		grid-column: 17 / 21;
+		display: grid;
+		padding: 5px 5px;
+		grid-template: auto / repeat(2, auto);
+		gap: 4px 8px;
+		justify-content: center;
+		border-radius: 0px 7px 7px 0px;
+	}
+
+	&__necessary,
+	&__done,
+	&__remove,
+	&__redact {
+		font-size: 24px;
+		line-height: 24px;
+		height: 25px;
+		width: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		user-select: none;
+		text-align: center;
+		transition: all 0.1s linear;
+		border-radius: 50%;
+
+		&:hover {
+			transform: scale(1.2);
+			color: white;
+		}
+
+		&:active {
+			transform: scale(0.95);
+			color: white
+		}
+	}
+
+	&__redact {
+		color: MediumBlue;
+		transform: rotate(90deg);
+
+		&:hover {
+			transform: rotate(90deg) scale(1.2);
+			background: DarkBlue;
+
+			&:before {
+				transform: rotate(-90deg);
+				content: 'Tap to start redacting your note';
+				right: 21px;
+				top: -5px;
+			}
+		}
+
+		&:active {
+			transform: rotate(90deg) scale(0.95);
+			background: DarkBlue;
+		}
+	}
+
+	&__necessary {
+		color: Goldenrod;
+
+		&:hover {
+			background: Goldenrod;
+
+			&:before {
+				content: 'Mark your note as active';
+				top: -50px;
+				left: -48px;
+			}
+		}
+
+		&:active {
+			background: Goldenrod;
+		}
+
+		&_active {
+			background: Goldenrod;
+			color: white;
+			transform: scale(1.1);
+		}
+	}
+
+	&__done {
+		color: rgb(22, 153, 22);
+
+		&:hover {
+			color: white;
+			background: rgb(22, 153, 22);
+
+			&:before {
+				content: 'Mark your note as completed';
+				top: -50px;
+				left: -77px;
+			}
+		}
+
+		&:active {
+			color: white;
+		}
+
+		&_active {
+			transform: scale(1.1);
+			background: rgb(22, 153, 22);
+			color: white;
+		}
+	}
+
+	&__remove {
+		color: OrangeRed;
+
+		&:hover {
+			background: tomato;
+
+			&:before {
+				content: 'Tap to remove your note';
+				// right: 21px;
+				right: -10px;
+				top: -74px;
+			}
+		}
+
+		&:active {
+			background: tomato;
+		}
+	}
+}

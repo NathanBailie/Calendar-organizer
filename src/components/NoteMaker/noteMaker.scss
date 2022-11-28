@@ -1,0 +1,78 @@
+.noteMaker {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid DarkGreen;
+	border-radius: 0px 7px 7px 0px;
+	width: 100%;
+	padding: 25px 15px 15px;
+	border-left: none;
+	position: relative;
+
+	h2 {
+		text-align: center;
+		margin: 0 auto 15px;
+	}
+
+	p {
+		margin: 0 0 5px;
+		text-align: left;
+	}
+
+	input,
+	textarea {
+		margin-bottom: 18px;
+		border-radius: 5px;
+		border: 1px solid rgb(163, 163, 163);
+		height: 20px;
+		font-size: 14px;
+		padding: 2px 10px;
+
+		&:focus {
+			border: 1px solid white;
+			outline: 2px solid #99d0f0;
+			box-shadow: 0px 0px 10px #99d0f0;
+		}
+	}
+
+	textarea {
+		line-height: 16px;
+		line-height: 16px;
+		min-height: calc(16px*4 + 2px*2);
+		resize: none;
+	}
+
+	button {
+		background: rgb(41, 148, 89);
+		width: 100px;
+		height: 30px;
+		margin: 0 auto;
+		border-radius: 7px;
+		font-size: 15px;
+		transition: all 0.1s linear;
+		color: Seashell;
+		border: none;
+
+		&:hover {
+			background: rgb(236, 235, 235);
+			transform: scale(1.1);
+			background: DarkGreen;
+			border: 1px solid YellowGreen;
+			color: white;
+			box-shadow: 0px 0px 15px LightGreen;
+			border: 3px solid yellowgreen;
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+
+	&__startTime,
+	&__endTime {
+		&_mistake {
+			&::placeholder {
+				color: red;
+			}
+		}
+	}
+}

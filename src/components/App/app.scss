@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	box-sizing: border-box;
+	max-width: 800px;
+	margin: 25px auto 0;
+}
+
+.wraper {
+	display: flex;
+}
