@@ -11,11 +11,13 @@
 	h2 {
 		text-align: center;
 		margin: 0 auto 15px;
+		user-select: none;
 	}
 
 	p {
 		margin: 0 0 5px;
 		text-align: left;
+		user-select: none;
 	}
 
 	input,
@@ -26,6 +28,7 @@
 		height: 20px;
 		font-size: 14px;
 		padding: 2px 10px;
+		user-select: none;
 
 		&:focus {
 			border: 1px solid white;
@@ -51,6 +54,8 @@
 		transition: all 0.1s linear;
 		color: Seashell;
 		border: none;
+		cursor: pointer;
+		user-select: none;
 
 		&:hover {
 			background: rgb(236, 235, 235);
@@ -72,6 +77,7 @@
 		opacity: 0;
 		transition: all 1s linear;
 		position: absolute;
+		user-select: none;
 
 		&_active {
 			opacity: 1;

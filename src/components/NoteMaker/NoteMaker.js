@@ -13,6 +13,8 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 
 
 	function onValidate(time1, time2, ...arg) {
+		onValidateStartTime(time1);
+		onValidateEndTime(time2);
 		if (!onValidateStartTime(time1) && !onValidateEndTime(time2)) {
 			return onRedactNote(...arg);
 		}
