@@ -2,11 +2,10 @@ import { useState } from 'react';
 import Calendar from '../Calendar';
 
 
-const CalendarData = ({ currentYear, currentMonth, currentDay, currentDayOfWeek, onGetDate, daysWithNotes }) => {
+const CalendarData = ({ currentYear, currentMonth, monthToShow, dayToShow, dayOfWeekToShow, onGetDate, daysWithNotes }) => {
 	const [year, setYear] = useState(currentYear);
-	const [month, setMonth] = useState(currentMonth);
-	const [day, setDay] = useState(currentDay);
-	const [dayOfWeek, setDayOfWeek] = useState(currentDayOfWeek);
+	const [month, setMonth] = useState(monthToShow);
+	// const [day, setDay] = useState(dayToShow);
 	const amountOfDays = amountOfDaysInMonth(year, month);
 	const arrayOfDays = getArrayOfDays(amountOfDays, year, month);
 
@@ -51,8 +50,8 @@ const CalendarData = ({ currentYear, currentMonth, currentDay, currentDayOfWeek,
 			currentMonth={currentMonth}
 			year={year}
 			month={month}
-			day={day}
-			dayOfWeek={dayOfWeek}
+			dayToShow={dayToShow}
+			dayOfWeekToShow={dayOfWeekToShow}
 			arrayOfDays={arrayOfDays}
 			daysWithNotes={daysWithNotes}
 			onChangeMonth={onChangeMonth}

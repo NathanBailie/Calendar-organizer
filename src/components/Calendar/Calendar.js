@@ -7,7 +7,7 @@ import right from '../../base/icons/chevrons/right.png';
 const Calendar = (props) => {
 	const {
 		currentYear, currentMonth,
-		year, month, day, dayOfWeek,
+		year, month, dayToShow, dayOfWeekToShow,
 		arrayOfDays,
 		daysWithNotes,
 		onGetDate,
@@ -16,7 +16,7 @@ const Calendar = (props) => {
 	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const daysShort = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 	const nameOfMonth = months[month];
-	const nameOfDay = days[dayOfWeek];
+	const nameOfDay = days[dayOfWeekToShow];
 	const calendarTitle = daysShort.map((day, index) => <span key={index}>{day}</span>);
 	const notesInCurrentMonth = daysWithNotes.filter(note => {
 		if (note.year === year &&
@@ -28,7 +28,7 @@ const Calendar = (props) => {
 	const [activeNumber, setActiveNumber] = useState(false);
 	const calendarDays = arrayOfDays.map((dayOfMonth, index) => {
 		let spanClass;
-		if (day === index &&
+		if (dayToShow === index &&
 			currentYear === year &&
 			currentMonth === month) {
 			spanClass = 'calendar__current';
@@ -69,7 +69,7 @@ const Calendar = (props) => {
 					<img src={right} alt="rightChevron" />
 				</button>
 			</div>
-			<p>{`${nameOfDay} ${day}`}</p>
+			<p>{`${nameOfDay} ${dayToShow}`}</p>
 
 			<div className="calendar__title">
 				{calendarTitle}
