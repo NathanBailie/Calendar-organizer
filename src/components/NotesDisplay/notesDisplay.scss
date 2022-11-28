@@ -60,26 +60,6 @@
 		}
 	}
 
-	&__necessary,
-	&__done,
-	&__redact,
-	&__remove {
-		&:hover {
-			&:before {
-				position: absolute;
-				width: 100px;
-				border: 1px solid lightgrey;
-				background: LightSteelBlue;
-				color: black;
-				border-radius: 7px;
-				font-size: 12px;
-				line-height: 16px;
-				padding: 5px;
-				opacity: 0;
-				animation: visibility 1s 0.5s linear forwards;
-			}
-		}
-	}
 
 	&__title {
 		margin: 0 0 2px;
@@ -175,37 +155,31 @@
 		text-align: center;
 		transition: all 0.1s linear;
 		border-radius: 50%;
+		cursor: pointer;
+
 
 		&:hover {
 			transform: scale(1.2);
 			color: white;
+
+			&:before {
+				position: absolute;
+				width: 100px;
+				border: 1px solid lightgrey;
+				background: LightSteelBlue;
+				color: black;
+				border-radius: 7px;
+				font-size: 12px;
+				line-height: 13px;
+				padding: 5px;
+				opacity: 0;
+				animation: visibility 1s 0.5s linear forwards;
+			}
 		}
 
 		&:active {
 			transform: scale(0.95);
 			color: white
-		}
-	}
-
-	&__redact {
-		color: MediumBlue;
-		transform: rotate(90deg);
-
-		&:hover {
-			transform: rotate(90deg) scale(1.2);
-			background: DarkBlue;
-
-			&:before {
-				transform: rotate(-90deg);
-				content: 'Tap to start redacting your note';
-				right: 21px;
-				top: -5px;
-			}
-		}
-
-		&:active {
-			transform: rotate(90deg) scale(0.95);
-			background: DarkBlue;
 		}
 	}
 
@@ -217,7 +191,7 @@
 
 			&:before {
 				content: 'Mark your note as active';
-				top: -50px;
+				top: -45px;
 				left: -48px;
 			}
 		}
@@ -242,7 +216,7 @@
 
 			&:before {
 				content: 'Mark your note as completed';
-				top: -50px;
+				top: -45px;
 				left: -77px;
 			}
 		}
@@ -258,6 +232,28 @@
 		}
 	}
 
+	&__redact {
+		color: MediumBlue;
+		transform: rotate(90deg);
+
+		&:hover {
+			transform: rotate(90deg) scale(1.2);
+			background: DarkBlue;
+
+			&:before {
+				transform: rotate(-90deg);
+				content: 'Tap to start redacting your note';
+				right: 20px;
+				top: -2px;
+			}
+		}
+
+		&:active {
+			transform: rotate(90deg) scale(0.95);
+			background: DarkBlue;
+		}
+	}
+
 	&__remove {
 		color: OrangeRed;
 
@@ -266,9 +262,8 @@
 
 			&:before {
 				content: 'Tap to remove your note';
-				// right: 21px;
 				right: -10px;
-				top: -74px;
+				top: -70px;
 			}
 		}
 
