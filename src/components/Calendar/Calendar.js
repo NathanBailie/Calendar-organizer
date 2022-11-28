@@ -7,7 +7,7 @@ import right from '../../base/icons/chevrons/right.png';
 const Calendar = (props) => {
 	const {
 		currentYear, currentMonth,
-		year, month, dayToShow, dayOfWeekToShow,
+		year, month, day, dayToShow, dayOfWeek,
 		arrayOfDays,
 		daysWithNotes,
 		onGetDate,
@@ -16,7 +16,7 @@ const Calendar = (props) => {
 	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const daysShort = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 	const nameOfMonth = months[month];
-	const nameOfDay = days[dayOfWeekToShow];
+	const nameOfDay = days[dayOfWeek];
 	const calendarTitle = daysShort.map((day, index) => <span key={index}>{day}</span>);
 	const notesInCurrentMonth = daysWithNotes.filter(note => {
 		if (note.year === year &&
@@ -28,7 +28,7 @@ const Calendar = (props) => {
 	const [activeNumber, setActiveNumber] = useState(false);
 	const calendarDays = arrayOfDays.map((dayOfMonth, index) => {
 		let spanClass;
-		if (dayToShow === index &&
+		if (day === index &&
 			currentYear === year &&
 			currentMonth === month) {
 			spanClass = 'calendar__current';

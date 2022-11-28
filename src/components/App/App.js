@@ -25,9 +25,8 @@ const App = () => {
 		date.getDate(),
 		date.getDay(),
 	];
-	const [monthToShow, setMonthToShow] = useState(currentMonth);
 	const [dayToShow, setDayToShow] = useState(currentDay);
-	const [dayOfWeekToShow, setDayOfWeekToShow] = useState(currentDayOfWeek);
+	const [dayOfWeektoShow, setDayOfWeektoShow] = useState(currentDayOfWeek);
 	const [notes, setNotes] = useState(allNnotes);
 	const [notesToShow, setNotesToShow] = useState([]);
 	const [dateOfShowingNote, setDateOfShowingNote] = useState([]);
@@ -59,10 +58,9 @@ const App = () => {
 
 	function onGetDate(year = currentYear, month = currentMonth, day = currentDay) {
 		setDateOfShowingNote([year, month, day]);
-		setMonthToShow(month);
 		setDayToShow(day);
 		const dayOfWeek = new Date(year, month, day).getDay();
-		setDayOfWeekToShow(dayOfWeek);
+		setDayOfWeektoShow(dayOfWeek);
 	};
 
 	const onToggleProperty = (id, prop) => {
@@ -142,9 +140,9 @@ const App = () => {
 				<CalendarData
 					currentYear={currentYear}
 					currentMonth={currentMonth}
-					monthToShow={monthToShow}
+					currentDay={currentDay}
 					dayToShow={dayToShow}
-					dayOfWeekToShow={dayOfWeekToShow}
+					dayOfWeektoShow={dayOfWeektoShow}
 					onGetDate={onGetDate}
 					daysWithNotes={daysWithNotes}
 				/>
