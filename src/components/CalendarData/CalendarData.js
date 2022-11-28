@@ -6,7 +6,6 @@ const CalendarData = ({ currentYear, currentMonth, currentDay, dayToShow, dayOfW
 	const [year, setYear] = useState(currentYear);
 	const [month, setMonth] = useState(currentMonth);
 	const [day, setDay] = useState(currentDay);
-	// const [dayOfWeek, setDayOfWeek] = useState(dayOfWeektoShow);
 	const amountOfDays = amountOfDaysInMonth(year, month);
 	const arrayOfDays = getArrayOfDays(amountOfDays, year, month);
 

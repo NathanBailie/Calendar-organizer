@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './noteMaker.scss';
 
 
-
 const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 	const [{ year, month, day, name, startTime, endTime, text, id }] = noteToEdit;
 	const [title, setTitle] = useState(name);
@@ -12,26 +11,44 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 	const [startTimeMistake, setStartTimeMistake] = useState(false);
 	const [endTimeMistake, setEndTimeMistake] = useState(false);
 
+
 	function onValidate(time1, time2, ...arg) {
-		if (!/\d?\d:\d\d?$/.test(time1)) {
-			setStart('');
-			setStartTimeMistake(true);
-		} if (!/\d?\d:\d\d?$/.test(time2)) {
-			setEnd('');
-			setEndTimeMistake(true);
-		} else {
+		if (!onValidateStartTime(time1) && !onValidateEndTime(time2)) {
 			return onRedactNote(...arg);
 		}
 	}
 
-	let startTimeClass = 'noteMaker__startTime';
-	let endTimeClass = 'noteMaker__endTime';
+	function onValidateStartTime(time) {
+		if (!/\d?\d:\d\d?$/.test(time)) {
+			setStartTimeMistake(true);
+			return true;
+		} else {
+			setStartTimeMistake(false);
+			return false;
+		}
+	}
+	function onValidateEndTime(time) {
+		if (!/\d?\d:\d\d?$/.test(time)) {
+			setEndTimeMistake(true);
+			return true;
+		} else {
+			setEndTimeMistake(false);
+			return false;
+		}
+	}
+
+	let startMistekeMessageClasses = 'noteMaker__startMistakeMessage';
+	let endMistekeMessageClasses = 'noteMaker__endMistakeMessage';
 
 	if (startTimeMistake === true) {
-		startTimeClass = 'noteMaker__startTime noteMaker__startTime_mistake';
+		startMistekeMessageClasses = 'noteMaker__startMistakeMessage noteMaker__startMistakeMessage_active';
+	} else {
+		startMistekeMessageClasses = 'noteMaker__startMistakeMessage';
 	}
 	if (endTimeMistake === true) {
-		endTimeClass = 'noteMaker__endTime noteMaker__endTime_mistake';
+		endMistekeMessageClasses = 'noteMaker__endMistakeMessage noteMaker__endMistakeMessage_active';
+	} else {
+		endMistekeMessageClasses = 'noteMaker__endMistakeMessage';
 	}
 
 
@@ -46,18 +63,24 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 				placeholder={'type a title for your note'}
 			/>
 			<p>Start time</p>
+			<span className={startMistekeMessageClasses}>
+				please, type the correct date
+			</span>
 			<input
 				value={start}
 				onChange={(e) => setStart(e.target.value)}
+				onBlur={() => onValidateStartTime(start)}
 				placeholder={'type the start time in format 00:00'}
-				className={startTimeClass}
 			/>
 			<p>End time</p>
+			<span className={endMistekeMessageClasses}>
+				please, type the correct date
+			</span>
 			<input
 				value={end}
 				onChange={(e) => setEnd(e.target.value)}
+				onBlur={() => onValidateEndTime(end)}
 				placeholder={'type the end time in format 00:00'}
-				className={endTimeClass}
 			/>
 			<p>Note</p>
 			<textarea

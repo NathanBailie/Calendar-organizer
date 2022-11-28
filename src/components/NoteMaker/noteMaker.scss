@@ -67,12 +67,25 @@
 		}
 	}
 
-	&__startTime,
-	&__endTime {
-		&_mistake {
-			&::placeholder {
-				color: red;
-			}
+	&__startMistakeMessage,
+	&__endMistakeMessage {
+		opacity: 0;
+		transition: all 1s linear;
+		position: absolute;
+
+		&_active {
+			opacity: 1;
+			color: tomato;
 		}
+	}
+
+	&__startMistakeMessage {
+		top: 130px;
+		left: 100px;
+	}
+
+	&__endMistakeMessage {
+		top: 193px;
+		left: 100px;
 	}
 }
