@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import uuid from 'react-uuid';
-
 import './app.scss';
 import '../../base/fonts/fonts.scss'
 import '../../base/animations/animations.scss';
-
 import CalendarData from '../CalendarData';
 import NoteMaker from '../NoteMaker';
 import NotesDisplay from '../NotesDisplay';

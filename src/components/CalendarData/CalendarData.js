@@ -12,7 +12,7 @@ const CalendarData = ({ currentYear, currentMonth, currentDay, dayToShow, dayOfW
 	function amountOfDaysInMonth(year, month) {
 		let date = new Date(year, month + 1, 0);
 		return (date.getDate())
-	}
+	};
 
 	function onChangeMonth(amount) {
 		if (month === 11 && amount > 0) {
@@ -23,8 +23,8 @@ const CalendarData = ({ currentYear, currentMonth, currentDay, dayToShow, dayOfW
 			setYear((y) => y + amount);
 		} else {
 			setMonth((m) => m + amount)
-		}
-	}
+		};
+	};
 
 	function getArrayOfDays(amount, year, month) {
 		let firstDay = (new Date(year, month, 1)).getDay();
@@ -34,15 +34,15 @@ const CalendarData = ({ currentYear, currentMonth, currentDay, dayToShow, dayOfW
 		while (count < amount) {
 			count++;
 			array.push(count);
-		}
+		};
 
 		let count2 = 1;
 		while (count2 < firstDay) {
 			array.unshift('');
 			count2++;
-		}
+		};
 		return array;
-	}
+	};
 
 	return (
 		<Calendar
@@ -58,7 +58,7 @@ const CalendarData = ({ currentYear, currentMonth, currentDay, dayToShow, dayOfW
 			onChangeMonth={onChangeMonth}
 			onGetDate={onGetDate}
 		/>
-	)
-}
+	);
+};
 
 export default CalendarData;

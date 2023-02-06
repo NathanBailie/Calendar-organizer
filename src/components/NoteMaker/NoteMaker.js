@@ -17,8 +17,8 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 		onValidateEndTime(time2);
 		if (!onValidateStartTime(time1) && !onValidateEndTime(time2)) {
 			return onRedactNote(...arg);
-		}
-	}
+		};
+	};
 
 	function onValidateStartTime(time) {
 		if (!/\d?\d:\d\d?$/.test(time)) {
@@ -27,8 +27,9 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 		} else {
 			setStartTimeMistake(false);
 			return false;
-		}
-	}
+		};
+	};
+
 	function onValidateEndTime(time) {
 		if (!/\d?\d:\d\d?$/.test(time)) {
 			setEndTimeMistake(true);
@@ -36,8 +37,8 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 		} else {
 			setEndTimeMistake(false);
 			return false;
-		}
-	}
+		};
+	};
 
 	let startMistekeMessageClasses = 'noteMaker__startMistakeMessage';
 	let endMistekeMessageClasses = 'noteMaker__endMistakeMessage';
@@ -51,8 +52,7 @@ const NoteMaker = ({ noteToEdit, onRedactNote }) => {
 		endMistekeMessageClasses = 'noteMaker__endMistakeMessage noteMaker__endMistakeMessage_active';
 	} else {
 		endMistekeMessageClasses = 'noteMaker__endMistakeMessage';
-	}
-
+	};
 
 
 	return (
